@@ -1,0 +1,194 @@
+{
+  "tests": [
+    {
+      "name": "Некорректные аргументы",
+      "setup": ".github/build.sh",
+      "run": ".github/test_ret_val.sh -1",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Некорректные аргументы, размер 0",
+      "setup": ".github/build.sh",
+      "run": ".github/test_ret_val.sh -1 0 0 1",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Некорректные аргументы, m>n",
+      "setup": ".github/build.sh",
+      "run": ".github/test_ret_val.sh -1 5 6 1",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Некорректные аргументы, не указан файл при k=0",
+      "setup": ".github/build.sh",
+      "run": ".github/test_ret_val.sh -1 5 5 0",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Не существует файла",
+      "setup": ".github/build.sh",
+      "run": ".github/test_ret_val.sh -3 5 5 0 a.in",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Некорректные аргументы. Символ вместо числа",
+      "setup": ".github/build.sh",
+      "run": ".github/test_ret_val.sh -1 5 5 a",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Вывод подматрицы",
+      "setup": ".github/build.sh",
+      "run": "./a.out 10 2 1",
+      "input": "",
+      "output": "1.000e+01 9.000e+00\r\n 9.000e+00 9.000e+00",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Формула 1",
+      "setup": ".github/build.sh",
+      "run": "./a.out 3 3 1",
+      "input": "",
+      "output": "3.000e+00 2.000e+00 1.000e+00\r\n 2.000e+00 2.000e+00 1.000e+00\r\n 1.000e+00 1.000e+00 1.000e+00",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Формула 2",
+      "setup": ".github/build.sh",
+      "run": "./a.out 3 3 2",
+      "input": "",
+      "output": "1.000e+00 2.000e+00 3.000e+00\r\n 2.000e+00 2.000e+00 3.000e+00\r\n 3.000e+00 3.000e+00 3.000e+00",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Формула 3",
+      "setup": ".github/build.sh",
+      "run": "./a.out 3 3 3",
+      "input": "",
+      "output": "0.000e+00 1.000e+00 2.000e+00\r\n 1.000e+00 0.000e+00 1.000e+00\r\n 2.000e+00 1.000e+00 0.000e+00",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Формула 4",
+      "setup": ".github/build.sh",
+      "run": "./a.out 3 3 4",
+      "input": "",
+      "output": "1.000e+00 5.000e-01 3.333e-01\r\n 5.000e-01 3.333e-01 2.500e-01\r\n 3.333e-01 2.500e-01 2.000e-01",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Некорректные аргументы. Несуществующий режим k",
+      "setup": ".github/build.sh",
+      "run": ".github/test_ret_val.sh -1 3 3 5",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Некорректные аргументы. Пустой файл",
+      "setup": ".github/build.sh",
+      "run": "touch a.in && .github/test_ret_val.sh -3 5 5 0 a.in",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Некорректные аргументы. Символы в файле",
+      "setup": ".github/build.sh",
+      "run": "echo \"1 0 0 a\" > a.in && .github/test_ret_val.sh -3 2 2 0 a.in",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Обработка ошибок выделения памяти",
+      "setup": ".github/build.sh",
+      "run": "ASAN_OPTIONS=allocator_may_return_null=1 .github/test_ret_val.sh -2 50000 5 1",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Расчёт времени",
+      "setup": ".github/build.sh",
+      "run": "./a.out 5 5 1",
+      "input": "",
+      "output": "Time:",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Расчёт невязки",
+      "setup": ".github/build.sh",
+      "run": "./a.out 5 5 1",
+      "input": "",
+      "output": "Residual:",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Нахождение обратной матрицы",
+      "setup": ".github/build.sh",
+      "run": "./a.out 5 5 1",
+      "input": "",
+      "output": "Inverse:",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Проверка матрицы на вырожденность",
+      "setup": ".github/build.sh",
+      "run": "echo \"1 1 1 1\" > a.in && .github/test_ret_val.sh -4 2 2 0 a.in",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    }
+  ]
+}
