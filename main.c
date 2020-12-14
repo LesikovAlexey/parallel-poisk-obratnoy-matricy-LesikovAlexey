@@ -112,7 +112,7 @@ int main(int argc, char **argv)
     show(n, n, m, inversed_matr);
     printf("Residual:%10.3e\n", norm(n, input_matr, inversed_matr));
     printf("\n");
-    printf("Time: %.3lf s\n", (double)time / 1e+9);
+    printf("Time: %.3lf s\n", (double)time / SECONDS);
 
     free(input_matr);
     free(inversed_matr);
