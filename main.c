@@ -132,6 +132,8 @@ int main(int argc, char **argv)
     }
     for (int p = 0; p < P; p++) {
         pthread_join(*threads[p], NULL);
+    }
+    for (int p = 0; p < P; p++) {
         if (args[p]->err != 0) {
             free(input_matr);
             free(inversed_matr);
@@ -147,7 +149,6 @@ int main(int argc, char **argv)
             return -4;
         }
     }
-    
     time = currentTimeNano() - time;
     printf("Inverse:\n");
     show(n, n, m, inversed_matr);
